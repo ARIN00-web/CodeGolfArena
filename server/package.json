@@ -1,0 +1,39 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Socket and sandbox execution service for Code Golf Arena",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=20.9 <25"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --test \"{test,tests}/**/*.test.js\"",
+    "typecheck": "tsc -p ../tsconfig.server.json",
+    "db:migrate": "node scripts/db/migrate.js",
+    "db:migrate:down": "node scripts/db/migrateDown.js",
+    "db:migrate:verify": "node scripts/db/verifyMigrations.js",
+    "db:seed": "node scripts/db/seed.js",
+    "check": "npm run typecheck && node --check index.js && node --check executor.js && node --check judge.js && npm test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@socket.io/redis-adapter": "^8.3.0",
+    "better-auth": "^1.6.25",
+    "cors": "^2.8.6",
+    "dockerode": "^5.0.0",
+    "express": "^5.2.1",
+    "pg": "^8.22.0",
+    "redis": "^4.7.1",
+    "sanitize-html": "^2.17.6",
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "@better-auth/cli": "^1.4.21",
+    "@types/pg": "^8.20.0",
+    "@types/sanitize-html": "^2.16.1"
+  }
+}

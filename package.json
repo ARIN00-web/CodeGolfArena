@@ -1,0 +1,54 @@
+{
+  "name": "code-golf-arena",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@10.9.4",
+  "engines": {
+    "node": ">=20.9 <25"
+  },
+  "scripts": {
+    "dev": "next dev --port 3005",
+    "dev:server": "node --env-file=.env server/index.js",
+    "check:server": "npm --prefix server run check",
+    "build": "next build",
+    "start": "next start --port 3005",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "typecheck:server": "npm --prefix server run typecheck",
+    "test": "node --test \"server/{test,tests}/**/*.test.js\"",
+    "problems:validate": "node server/scripts/problems/validate.js",
+    "db:migrate": "npm --prefix server run db:migrate",
+    "db:migrate:down": "npm --prefix server run db:migrate:down",
+    "db:migrate:verify": "npm --prefix server run db:migrate:verify",
+    "db:seed": "npm --prefix server run db:seed",
+    "check": "npm run lint && npm run typecheck && npm run typecheck:server && npm run test && npm run check:server && npm run build"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "@types/three": "^0.186.0",
+    "better-auth": "^1.6.25",
+    "framer-motion": "^12.42.2",
+    "lucide-react": "^1.25.0",
+    "next": "16.2.11",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "socket.io-client": "^4.8.3",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "^16.2.11",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "overrides": {
+    "dompurify": "3.4.12",
+    "postcss": "8.5.22",
+    "sharp": "0.35.3"
+  }
+}
